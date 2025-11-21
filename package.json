@@ -1,0 +1,18 @@
+{
+  "name": "advent-of-code",
+  "version": "1.0.0",
+  "description": "Advent of Code solutions runner with automatic input fetching",
+  "type": "module",
+  "main": "run.js",
+  "scripts": {
+    "start": "node run.js",
+    "test": "node --test",
+    "solution": "node run.js"
+  },
+  "keywords": ["advent-of-code", "aoc"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.3.1"
+  }
+}
