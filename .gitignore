@@ -1,4 +1,4 @@
 node_modules/
 .env
-**/input.txt
+**/*input.txt
 .DS_Store
