@@ -11,8 +11,12 @@ import { getInput } from '../utils/inputFetcher.js';
  */
 
 // Example input for testing (paste example from puzzle description)
-const EXAMPLE_INPUT_PART1 = ``;
-const EXAMPLE_INPUT_PART2 = ``; // Often the same as Part 1, but can be different
+const EXAMPLE_INPUT_PART1 = 
+`
+2x3x4
+1x1x10
+`;
+const EXAMPLE_INPUT_PART2 = EXAMPLE_INPUT_PART1; // Often the same as Part 1, but can be different
 
 /**
  * Solve Part 1
@@ -21,10 +25,18 @@ const EXAMPLE_INPUT_PART2 = ``; // Often the same as Part 1, but can be differen
  */
 export function part1(input) {
   const lines = input.trim().split('\n');
-  
-  // TODO: Implement solution
-  
-  return 0;
+  // console.log(lines);
+  return lines.reduce((total, currLine) => {
+    // console.log(total, currLine);
+    const numbers = currLine.trim().split('x').map(num => parseInt(num));
+    return total + calcSurfaceArea(...numbers);
+  }, 0)
+}
+
+function calcSurfaceArea(l, w, h) {
+  const sides = [l*w, w*h, h*l];
+  const minSide = Math.min(...sides);
+  return sides.reduce((total, current) => total + (current * 2), 0) + minSide;
 }
 
 /**
