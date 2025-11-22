@@ -46,10 +46,18 @@ function calcSurfaceArea(l, w, h) {
  */
 export function part2(input) {
   const lines = input.trim().split('\n');
-  
-  // TODO: Implement solution
-  
-  return 0;
+  // console.log(lines);
+  return lines.reduce((total, currLine) => {
+    // console.log(total, currLine);
+    const numbers = currLine.trim().split('x').map(num => parseInt(num));
+    return total + calcPerimeter(...numbers);
+  }, 0)
+}
+
+function calcPerimeter(l, w, h) {
+  const perimeters = [2*(l+w), 2*(w+h), 2*(h+l)];
+  const minPerim = Math.min(...perimeters);
+  return minPerim + (l * w * h);
 }
 
 /**
